@@ -3,6 +3,7 @@
 
 #include "Tank.h"
 #include "Runtime/CoreUObject/Public/UObject/UObjectGlobals.h"
+#include "TankBarrel.h"
 #include "..\Public\Tank.h"
 
 // Sets default values
@@ -35,7 +36,7 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 }
 
-void ATank::SetBarrelReference(UStaticMeshComponent* BarrelToSet)
+void ATank::SetBarrelReference(UTankBarrel* BarrelToSet)
 {
 	TankAimingComponent->SetBarrelReference(BarrelToSet);
 }
