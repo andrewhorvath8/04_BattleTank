@@ -39,8 +39,11 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 	}
 	else
 	{
+		// This only gets called, when we hit landscape, but its out of range...
+		// If we don't hit landscape, we won't even get here
+		// This won't get called, since our bullet speed is realistic (too high....)
 		auto Time = GetWorld()->GetTimeSeconds();
-		UE_LOG(LogTemp, Warning, TEXT("%f: No aim solution found"), Time);
+		UE_LOG(LogTemp, Warning, TEXT("%f: Aim solution NOT found!"), Time);
 	}
 }
 
@@ -51,5 +54,5 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	auto AimAsRotator = AimDirection.Rotation();
 	auto DeltaRotator = AimAsRotator - BarrelRotator;
 
-	Barrel->Elevate(5); // TODO remove magic number
+	Barrel->Elevate(DeltaRotator.Pitch);
 }
