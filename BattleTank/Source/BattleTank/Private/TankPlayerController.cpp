@@ -78,6 +78,9 @@ bool ATankPlayerController::GetLookVectorHitLocation(FVector& OutHitLocation, co
 	if (GetWorld()->LineTraceSingleByChannel(HitResult, StartLocation, EndLocation, ECollisionChannel::ECC_Visibility))
 	{
 		OutHitLocation = HitResult.Location;
+		// TODO find a way to ignore SELF from collision check
+		//auto Time = GetWorld()->GetTimeSeconds();
+		//UE_LOG(LogTemp, Warning, TEXT("%f: Rolling towards: %s"), Time, *OutHitLocation.ToString());
 		return true;
 	}
 	return false;

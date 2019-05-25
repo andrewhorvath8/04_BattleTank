@@ -5,6 +5,7 @@
 #include "Runtime/CoreUObject/Public/UObject/UObjectGlobals.h"
 #include "TankAimingComponent.h"
 #include "TankBarrel.h"
+#include "TankTurret.h"
 #include "..\Public\Tank.h"
 
 // Sets default values
@@ -33,6 +34,11 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 void ATank::SetBarrelReference(UTankBarrel* BarrelToSet)
 {
 	TankAimingComponent->SetBarrelReference(BarrelToSet);
+}
+
+void ATank::SetTurretReference(UTankTurret* TurretToSet)
+{
+	TankAimingComponent->SetTurretReference(TurretToSet);
 }
 
 void ATank::AimAt(FVector HitLocation)
