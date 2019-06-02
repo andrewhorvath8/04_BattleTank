@@ -21,5 +21,8 @@ public:
 
 private:
 	virtual void BeginPlay() override;
+
+	UPROPERTY(EditAnywhere)
+	float AcceptanceRadius = 3000;
 	
 };
