@@ -7,6 +7,16 @@
 #include "Components/StaticMeshComponent.h"
 #include "TankAimingComponent.generated.h"
 
+// Enum for aiming state
+UENUM()
+enum class EFiringState : uint8
+{
+	RELOADING,
+	AIMING,
+	LOCKED
+};
+
+
 // Forward declaration
 class UTankBarrel;
 class UTankTurret;
@@ -20,6 +30,9 @@ class BATTLETANK_API UTankAimingComponent : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UTankAimingComponent();
+
+	UPROPERTY(BlueprintReadOnly, category = "State")
+	EFiringState FiringStatus = EFiringState::RELOADING;
 
 private:
 	UTankBarrel* Barrel = nullptr;
