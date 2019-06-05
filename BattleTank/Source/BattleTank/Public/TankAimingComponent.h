@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright András Horváth
 
 #pragma once
 
@@ -27,25 +27,21 @@ class BATTLETANK_API UTankAimingComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
-public:	
-	// Sets default values for this component's properties
-	UTankAimingComponent();
+public:
+	UFUNCTION(BlueprintCallable, category = "Setup")
+	void Initialise(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet);
 
 	UPROPERTY(BlueprintReadOnly, category = "State")
 	EFiringState FiringStatus = EFiringState::RELOADING;
 
+	void AimAt(FVector HitLocation, float LaunchSpeed);
+
 private:
+	// Sets default values for this component's properties
+	UTankAimingComponent();
+
 	UTankBarrel* Barrel = nullptr;
 	UTankTurret* Turret = nullptr;
 
 	void MoveBarrelTowards(FVector AimDirection);
-
-public:	
-	void SetBarrelReference(UTankBarrel* BarrelToSet);
-
-	void SetTurretReference(UTankTurret* TurretToSet);
-
-	// TODO add set turret reference
-
-	void AimAt(FVector HitLocation, float LaunchSpeed);
 };
