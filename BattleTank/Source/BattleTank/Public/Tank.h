@@ -29,6 +29,8 @@ protected:
 	UTankMovementComponent* TankMovementComponent = nullptr;
 
 public:	
+	virtual void BeginPlay() override;
+
 	void AimAt(FVector HitLocation);
 
 	UFUNCTION(BlueprintCallable)

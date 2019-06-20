@@ -17,9 +17,17 @@ ATank::ATank()
 	PrimaryActorTick.bCanEverTick = false;
 }
 
+void ATank::BeginPlay()
+{
+	Super::BeginPlay();
+
+	auto TankName = GetName();
+	UE_LOG(LogTemp, Warning, TEXT("DONKEY: tank construction :%s"),*TankName);
+}
+
 void ATank::AimAt(FVector HitLocation)
 {
-	auto OurTankName = GetName();
+	if (!TankAimingComponent) { return; }
 	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 }
 
