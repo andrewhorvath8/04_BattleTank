@@ -32,7 +32,7 @@ public:
 	void Initialise(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet);
 
 	UPROPERTY(BlueprintReadOnly, category = "State")
-	EFiringState FiringStatus = EFiringState::RELOADING;
+	EFiringState FiringStatus = EFiringState::AIMING;
 
 	void AimAt(FVector HitLocation, float LaunchSpeed);
 
