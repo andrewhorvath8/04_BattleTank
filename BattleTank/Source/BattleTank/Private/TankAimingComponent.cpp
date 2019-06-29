@@ -23,7 +23,7 @@ void UTankAimingComponent::Initialise(UTankBarrel* BarrelToSet, UTankTurret* Tur
 	Turret = TurretToSet;
 }
 
-void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
+void UTankAimingComponent::AimAt(FVector HitLocation)
 {
 	if (!ensure(Barrel)) { return; }
 
@@ -38,14 +38,6 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 	{
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
 		MoveBarrelTowards(AimDirection);
-	}
-	else
-	{
-		// This only gets called, when we hit landscape, but its out of range...
-		// If we don't hit landscape, we won't even get here
-		// This won't get called, since our bullet speed is realistic (too high....)
-		auto Time = GetWorld()->GetTimeSeconds();
-		UE_LOG(LogTemp, Warning, TEXT("%f: Aim solution found"), Time);
 	}
 }
 
