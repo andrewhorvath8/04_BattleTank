@@ -10,7 +10,6 @@ class UTankBarrel;
 class UTankTurret;
 class UTankAimingComponent;
 class AProjectile;
-class UTankMovementComponent;
 
 UCLASS()
 class BATTLETANK_API ATank : public APawn
@@ -25,9 +24,6 @@ protected:
 	UPROPERTY(BlueprintReadOnly)
 	UTankAimingComponent* TankAimingComponent = nullptr;
 
-	UPROPERTY(BlueprintReadOnly)
-	UTankMovementComponent* TankMovementComponent = nullptr;
-
 public:	
 	virtual void BeginPlay() override;
 
@@ -36,6 +32,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void Fire();
 
+	// TODO remove once firing moved to aimingcomponent
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float LaunchSpeed = 13000; // 130m/s
 
