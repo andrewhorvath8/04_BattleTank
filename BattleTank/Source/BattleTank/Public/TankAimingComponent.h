@@ -49,11 +49,15 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void Fire();
 
+	bool IsBarrelMoving();
+
 	double LastFireTime = 0;
 
 private:
 	// Sets default values for this component's properties
 	UTankAimingComponent();
+
+	FVector AimDirection = FVector(0.0, 0.0, 0.0);
 
 	virtual void BeginPlay() override;
 
