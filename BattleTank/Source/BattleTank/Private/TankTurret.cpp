@@ -11,8 +11,5 @@ void UTankTurret::Rotate(float RelativeSpeed)
 	auto Rotation = RelativeRotation.Yaw + RotationChange;
 
 	SetRelativeRotation(FRotator(0, Rotation, 0));
-
-	//auto Time = GetWorld()->GetTimeSeconds();
-	//UE_LOG(LogTemp, Warning, TEXT("%f: Rolling towards: %f"), Time, RawNewRotation);
 }
 
