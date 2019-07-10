@@ -35,6 +35,8 @@ public:
 	UPROPERTY(BlueprintReadOnly, category = "State")
 	EFiringState FiringState = EFiringState::RELOADING;
 
+	EFiringState GetFiringState() const;
+
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float LaunchSpeed = 13000; // 130m/s
 
